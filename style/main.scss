@@ -1,9 +1,18 @@
-$color-primary: #000000;
+$color-primary: #808080;
 $color-secondary: #ffffff;
-$color-accent: #6b6b6b;
+$color-accent: #bdb4b4;
+
+body {
+  margin: 0;
+}
 
 header {
   font-family: sans-serif;
+}
+
+nav {
+  padding: 1.5%;
+  background-color: $color-primary;
 }
 
 form {
@@ -39,7 +48,6 @@ li {
   margin-bottom: .75em;
   padding-bottom: .5em;
   padding-left: 1em;
-  border-bottom: solid 1px $color-primary;
   list-style: none;
   display: inline;
   &:first-child {
@@ -48,9 +56,10 @@ li {
 }
 
 a {
-  color: $color-primary;
+  color: $color-secondary;
   text-decoration: none;
   font-weight: bold;
+  transition: all .25s ease;
   &:hover {
     color: $color-accent;
   }

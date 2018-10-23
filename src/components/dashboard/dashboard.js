@@ -1,59 +1,54 @@
 import React from 'react';
-import uuid from 'uuid/v4';
-import NoteCreateForm from '../note-create-form/note-create-form';
-import NoteList from '../note-list/note-list';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import * as categoryActions from '../../action/category-actions'
+import CategoryForm from '../category-form/category-form';
+import CategoryItem from '../category-item/category-item';
 
 class Dashboard extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-    this.state.notes = [];
-  }
-
-  handleAddNote = (note) => {
-    note.id = uuid();
-    return this.setState((previousState) => {
-      return {
-        notes: [...previousState.notes, note],
-      }
-    });
-  }
-
-  handleRemoveNote = (noteToRemove) => {
-    this.setState((previousState) => ({
-      notes: previousState.notes.filter(currentNote => currentNote.id !== noteToRemove.id),
-    }));
-  }
-
-  handleUpdateNote = (noteToUpdate) => {
-    return this.setState((previousState) => {
-      return { notes: previousState.notes.map((currentNote) => {
-        if (currentNote.id === noteToUpdate.id) {
-          currentNote = noteToUpdate;
-        }
-        return currentNote;
-      }),
-    }
-    });
-  }
-
   render() {
     return (
-        <section>
-          <h2>Notes Dashboard</h2>
-          <p>Add a new note</p>
-          <NoteCreateForm
-            handleComplete = {this.handleAddNote}
+        <div>
+          <CategoryForm
+            onComplete={this.props.categoryCreate}
           />
-          <NoteList
-            notes = {this.state.notes}
-            handleRemoveNote = {this.handleRemoveNote}
-            handleComplete = {this.handleUpdateNote}
-          />
-        </section>
+          <div>{ this.props.categories.map(currentCategory => <CategoryItem
+              key={currentCategory.id}
+              category={currentCategory}
+              onRemove={this.props.categoryRemove}
+              onUpdate={this.props.categoryUpdate}
+            />)}
+           </div>
+        </div>
     );
   }
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => {
+  return {
+    categories: state,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    categoryCreate: (category) => {
+      dispatch(categoryActions.create(category));
+    },
+    categoryRemove: (category) => {
+      dispatch(categoryActions.remove(category));
+    },
+    categoryUpdate: (category) => {
+      dispatch(categoryActions.update(category));
+    },
+  };
+};
+
+Dashboard.propTypes = {
+  categoryCreate: PropTypes.func,
+  categoryRemove: PropTypes.func,
+  categoryUpdate: PropTypes.func,
+  categories: PropTypes.array,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
