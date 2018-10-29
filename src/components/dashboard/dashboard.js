@@ -5,14 +5,16 @@ import * as categoryActions from '../../action/category-actions'
 import CategoryForm from '../category-form/category-form';
 import CategoryItem from '../category-item/category-item';
 
+import './dashboard.scss';
+
 class Dashboard extends React.Component {
   render() {
     return (
-        <div>
+        <div className='main-container'>
           <CategoryForm
             onComplete={this.props.categoryCreate}
           />
-          <div>{ this.props.categories.map(currentCategory => <CategoryItem
+          <div className='category-container'>{ this.props.categories.map(currentCategory => <CategoryItem
               key={currentCategory.id}
               category={currentCategory}
               onRemove={this.props.categoryRemove}
@@ -26,7 +28,8 @@ class Dashboard extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    categories: state,
+    categories: state.categories,
+    cards: state.cards,
   };
 };
 

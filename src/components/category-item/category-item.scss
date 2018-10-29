@@ -1,0 +1,38 @@
+@import '../../../style/variables';
+
+.category-item {
+  padding: 2%;
+  background-color: $color-primary;
+  margin: 2%;
+  position: relative;
+  width: 255px;
+}
+
+.category-title {
+  margin-bottom: 5%;
+  font-size: 1.25em;
+  &-container {
+    border-bottom: solid 2px $color-secondary;
+    margin-bottom: 6%;
+  }
+}
+
+.card-add-cta {
+  margin-bottom: 3%;
+  text-transform: lowercase;
+}
+
+.category-remove {
+  position: absolute;
+  top: 6%;
+  right: 4%;
+  border: none;
+  padding: 1%;
+  font-weight: bold;
+  font-size: 1em;
+  background-color: transparent;
+  color: $color-secondary;
+  &:hover {
+    cursor: pointer;
+  }
+}

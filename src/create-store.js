@@ -1,6 +1,9 @@
-import { createStore } from 'redux';
-import categoryReducer from './reducer/categroy-reducer';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import mainReducer from './reducer/main-reducer';
+import reduxReporter from './middleware/redux-reporter';
 
 export default () => {
-  return createStore(categoryReducer);
+  const store = createStore(mainReducer, composeWithDevTools(applyMiddleware(reduxReporter)));
+  return store;
 };

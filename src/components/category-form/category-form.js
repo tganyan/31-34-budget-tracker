@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './category-form.scss';
+
 const emptyState = {
   title: '',
 };
@@ -24,8 +26,9 @@ class CategoryForm extends React.Component {
   };
 
   render() {
+    const buttonText = this.props.category ? 'Update' : 'Create';
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className='category-form'>
         <input
           type="text"
           name='title'
@@ -33,7 +36,7 @@ class CategoryForm extends React.Component {
           value={this.state.title}
           onChange={this.handleChange}
         />
-        <button type='submit'>Create Category</button>
+        <button type='submit'>{buttonText} Category</button>
       </form>
     )
   }
