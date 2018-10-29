@@ -1,0 +1,26 @@
+@import '../../../style/variables';
+
+.card-form {
+  margin-left: 0;
+  margin-bottom: 3%;
+  & input {
+    margin-right: 2%;
+    padding: 1%;
+    border: none;
+    margin-bottom: 5%;
+  }
+  & button {
+    padding: 1% 2%;
+    background-color: $color-secondary;
+    border: none;
+    color: $color-primary;
+    text-transform: lowercase;
+    transition: all ease .25s;
+    font-weight: bold;
+    &:hover {
+      cursor: pointer;
+      background-color: $color-primary;
+      color: $color-secondary;
+    }
+  }
+}

@@ -1,9 +1,6 @@
-# React Search
+# React Kanban
 
-This is a simple react app for adding notes through a form field.
-
-## State map
-![state image](assets/state-map.jpg)
+This is a web application that allows you to add unlimited categories with unlimited cards as a subset to a given category. Useful for keeping track of things.
 
 ## Getting Started
 
@@ -38,7 +35,6 @@ yarn i
 * [React](https://reactjs.org/) - A dynamic web application framework
 * [Babel](https://babeljs.io/) - A javascript compiler
 * [Webpack](https://webpack.js.org/) - A robust bundling tool
-* [Cowsay](https://www.npmjs.com/package/cowsay) - A fun caw generator
 * [Superagent](https://visionmedia.github.io/superagent/) - AJAX with less suck!
 
 

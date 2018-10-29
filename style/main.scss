@@ -1,66 +1,6 @@
-$color-primary: #808080;
-$color-secondary: #ffffff;
-$color-accent: #bdb4b4;
+@import './variables';
+@import 'reset';
+@import './base';
 
-body {
-  margin: 0;
-}
 
-header {
-  font-family: sans-serif;
-}
 
-nav {
-  padding: 1.5%;
-  background-color: $color-primary;
-}
-
-form {
-  width: 50%;
-  margin: 0 auto 2em;
-  & input,
-  & textarea {
-    display: block;
-    width: 100%;
-  }
-}
-
-button {
-  display: block;
-  margin-top: 2em;
-  width: 100%;
-  border: none;
-  background-color: $color-primary;
-  color: $color-secondary;
-  padding: 1em;
-  &:hover {
-    background-color: $color-accent;
-    cursor: pointer;
-  }
-}
-
-ul {
-  width: 50%;
-  padding-left: 0;
-}
-
-li {
-  margin-bottom: .75em;
-  padding-bottom: .5em;
-  padding-left: 1em;
-  list-style: none;
-  display: inline;
-  &:first-child {
-    padding-left: 0;
-  }
-}
-
-a {
-  color: $color-secondary;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all .25s ease;
-  &:hover {
-    color: $color-accent;
-  }
-}

@@ -2,6 +2,9 @@ import '@babel/polyfill';
 import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import Dashboard from '../dashboard/dashboard';
+import Landing from '../landing/landing'
+
+import './app.scss';
 
 class App extends React.Component {
   render() {
@@ -16,6 +19,7 @@ class App extends React.Component {
                 </ul>
               </nav>
               <Route exact path={'/dashboard'} component={Dashboard}/>
+              <Route exact path={'/'} component={Landing}/>
             </div>
           </BrowserRouter>
         </main>
